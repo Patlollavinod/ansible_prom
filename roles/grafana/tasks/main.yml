@@ -1,6 +1,7 @@
 - name: Install grafana
-  yum: "apt-get install -y apt-transport-https software-properties-common"
-  state: latest
+  apt:
+    name: " grafana" 
+    state: latest
 
 - name: "Grafana configuration file copy"
   template:

@@ -4,10 +4,12 @@
 
 - name: Creating node_exporter user
   user:
-    name: node-exporter
-    group: node-exporter
+    name: "{{userId}}"
+    group: "{{groupId}}"
     system: yes
-    shell: sudo su node-exporter
+    shell: "/sbin/nologin"
+    comment: "{{userId}} nologin User"
+    createhome: "no"
     state: present
 
 - name: Install prometheus node exporter

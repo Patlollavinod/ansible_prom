@@ -1,19 +1,14 @@
 [Unit]
-Description=Node Exporter
+Description={{serviceName}}
 Wants=network-online.target
 After=network-online.target
 
-StartLimitIntervalSec=500
-StartLimitBurst=5
-
 [Service]
-User=node_exporter
-Group=node_exporter
-Type=simple
+User={{ userId }}
+Group={{ groupId }}
 Restart=on-failure
-RestartSec=5s
-ExecStart=/usr/local/bin/node_exporter \
-    --collector.logind
+Type=simple
+ExecStart={{ exec_command }}
 
 [Install]
 WantedBy=multi-user.target
